@@ -1,0 +1,4 @@
+BOMB = (start->timeout -> explode ->STOP).
+
+LAMP = (switch_on -> switch_off->LAMP).
+

@@ -1,0 +1,37 @@
+/* 
+Created: 07 OCT 2015
+Author : Eugene Valassakis
+email : pierre.valassakis15@imperial.ac.uk
+
+This is a program that works with Characters */
+
+#include<iostream>
+
+using namespace std;
+
+//Charater to be stored from the input
+char car;
+
+int main(){
+	cout<<" Please input a single character from the keyboard and press enter: ";
+	cin>> car;
+	
+	//Convert the character to its ASCII number equivalent
+	int number = car;
+	if(number>=65 && number <=90){
+	number = number +32;
+	char converted_char = number; 
+	cout<<endl<<car<<" is a letter."<<"The corresponding lower case character is " << converted_char <<endl<<endl;
+	/* could also have done with static_cast<char>(number+32) dirrectly in the cout statement*/
+	} else if(number>=97 && number <=122){
+	number = number - 32;
+	char converted_char = number;
+	cout<<endl<<car<<" is a letter."<<"The corresponding Upper case character is: " << converted_char<<endl<<endl;
+	}else{
+	cout<<endl<<car<<" is not a letter."<<endl<<endl;
+	}
+
+	return 0;
+
+
+}

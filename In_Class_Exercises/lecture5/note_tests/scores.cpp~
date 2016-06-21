@@ -1,0 +1,44 @@
+
+	#include <iostream>
+	using namespace std;
+	
+	
+	/* START OF MAIN PROGRAM */
+	int main() 
+	{
+		int total_test_score;
+	
+		cout << "Enter the candidate's score: ";
+		cin >> total_test_score;
+	
+		int score_out_of_ten = total_test_score / 10;
+	
+	switch (score_out_of_ten)
+	{
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+		case 4:     cout << "You are a failure - you ";
+		            cout << "must study much harder.\n";
+		            break;
+	
+		case 5:     cout << "You have just scraped through the test.\n";
+		            break;
+
+		case 6:
+		case 7:     cout << "You have done quite well.\n";
+		            break;
+	
+		case 8:
+		case 9:
+		case 10:    cout << "Your score is excellent - well done.\n";
+		            break;
+
+		default:    cout << "Incorrect score - must be between ";
+		            cout << "0 and 100.\n";
+		return 0;
+	}
+	/* END OF MAIN PROGRAM */
+
+}

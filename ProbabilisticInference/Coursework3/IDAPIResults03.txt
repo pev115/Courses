@@ -1,0 +1,17 @@
+
+Coursework Three results by Pierre Eugene Valassakis (pev115, 00644379)
+
+The MDLSize of the network for the Hepatitis C data set is:
+3972.430
+
+The MDLAccuracy of the network for the Hepatitis C data set is:
+-23672.181
+
+The MDLScore of the network for the Hepatitis C data set is:
+27644.611
+
+The best tree with one arc removed is :
+[ [0], [1], [2, 0], [6, 1], [4, 1], [8, 7], [5, 4], [3, 4], [7, 0] ]
+And its score is: 
+25916.702
+

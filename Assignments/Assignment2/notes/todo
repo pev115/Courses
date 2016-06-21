@@ -1,0 +1,16 @@
+
+
+Create a rotor mechanism classs
+
+make the whole thing pretty
+
+create  a proper makefile
+
+sort out the gitlab thing
+
+incorporate the errors
+
+
+
+wherever there is an input stream make sure that there is no way of
+exiting such that the stream remains open.

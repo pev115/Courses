@@ -1,0 +1,90 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%Lists tutorial
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% question a
+mysort(SL,L):-
+	setof(X, member(X,SL),L).
+
+
+%question b
+
+rev([H|[]],RevL):-
+	RevL = [H].
+
+rev([H|T], RevL) :-
+	   rev(T, X),
+	   append(X,[H],RevL).
+	  
+
+%question 3
+
+followedBy(X,Y,L):-
+	member(X,L),
+	member(Y,L),
+	append(L1,_,L),
+	append(_,[X,Y],L1).
+
+%followedBy(X,Y,L) :- append(_,[X,Y|_],L).
+
+
+nextTo(X,Y,L):-
+	append(_,[X,Y|_],L);
+	append(_,[Y,X|_],L).
+
+
+sumList([],0).
+	
+sumList([H,T],S):-
+	sumList(T,Sum),
+	S is Sum+H.
+
+
+
+%2
+
+last(X,[X]).
+	
+last(L,[H|T]):-
+	last(Last,T),	
+	L=Last.
+
+%3
+
+edge(a,b).
+edge(a,e).
+edge(b,c).
+edge(c,d).
+edge(f,d).
+edge(f,c).
+edge(e,f).
+
+
+path(X,Y,[X,Y]):- edge(X,Y).
+	    
+path(X,Y,[X|T]):-
+	edge(X,K),
+	path(K,Y,T).
+
+
+max(X,Y,Z):-Y>X,!,Z=Y.
+max(X,Y,Z) :- Z =  X.
+
+max(E,[H|[]]):-
+	E = H.
+max(E,[H|T]):-
+	max(Y,T),		
+	max(Y,H,K),
+	E = K.
+
+
+max_of_all(E,[H|[]]):-
+	max(E,H).
+
+max_of_all(E,[H|T]):-
+	max_of_all(Y,T),
+	max(Z,H),
+	max(Y,Z,K),
+	E = K.
+	
+	

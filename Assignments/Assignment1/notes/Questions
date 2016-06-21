@@ -1,0 +1,27 @@
+Questions:
+
+In the MORE TESTS Area:
+
+is this part of the assessment or just
+for us and we should grey it out at the 
+end?
+can i do it with the assert function?
+
+Should we only touch the parts that we have
+to do or will we be assessed say in the 
+presentation of the whole thing
+
+in the make_move function should we
+cater for all possible wrong inputs
+or only for positioning errors?
+
+are we penalised if we have a code that works but is not constructed
+in the most efficient way? should we try to make the code run 
+as fast as possible? ex in the make_postion function i can make it 
+run faster by invoquing the last function only when needed.
+
+header file question : why do we not have the
+#ifndef ect? What are these for? 
+
+
+what is the helper fucntion in Q4?

@@ -1,0 +1,96 @@
+%%%%%%%%%%%%%% GATE PROGRAM
+% d efine the gates
+output(G,0):-andgate(G), input1(G,X), input2(G,Y),(X=0;Y=0).
+output(G,1):- andgate(G),input1(G,X), input2(G,Y),(X=1,Y=1).
+
+
+output(G,0):- orgate(G), input1(G,X), input2(G,Y), (X=0,Y=0).
+output(G,1):- orgate(G), input1(G,X), input2(G,Y), (X=1;Y=1).
+
+
+output(G,0):- xorgate(G), input1(G,X), input2(G,Y) , (X=Y).
+output(G,1):- xorgate(G), input1(G,X), input2(G,Y), (X\=Y).
+
+
+
+
+% Write the program
+xorgate(g1).
+xorgate(g2).
+
+andgate(g3).
+andgate(g4).
+
+orgate(g5).
+
+%%%%% get the inputs
+input1(g1,0).
+input2(g1,1).
+
+
+input1(g2,X):- output(g1,X).
+input2(g2,1).
+
+input1(g3,1).
+input2(g3,X):- output(g1,X).
+
+input1(g4,1).
+input2(g4,0).
+
+input1(g5,X):-output(g3,X).
+input2(g5,Y):-output(g3,Y).
+
+
+
+%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%FIBONACCI PROGRAM
+
+
+
+
+
+
+
+
+fib(1,1).
+fib(2,1).
+
+
+
+fib(N,R):-N>=3, Y is N-1  ,  Z is N-2  ,fib(Y,K),fib(Z,L), R is K+L.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

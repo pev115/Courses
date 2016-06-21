@@ -1,0 +1,27 @@
+/* 
+Author: Eugene Valassakis
+Created Date: 9 oct 2015
+
+
+This program computes the averages of one, two three and four rational numbers.
+*/
+
+#include <iostream>
+#include "statistics.h"
+
+using namespace std;
+
+
+int main(){
+
+cout<<endl<<endl<<endl<<"This program tests the functions in the 'statistics.h' header file."<<endl<<endl;
+cout<<"Do you whish to test 1,2,3 or 4 numbers (enter 0 to end the program): ";
+
+
+
+
+
+
+
+
+}

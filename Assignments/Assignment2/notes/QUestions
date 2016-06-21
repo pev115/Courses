@@ -1,0 +1,73 @@
+SHould i do a new class with all the error checking or should i check
+as i go along?
+
+is the array checking for replacing all non populated elements work?
+
+
+should i have a class for the error checking??
+
+when having a helper function for a member function should it also be
+a member function of the class it belongs to (look at the enigma
+encrypt function)
+
+should i close the stream at the end of my staticencryptor class?
+
+what is the standard error stream ?
+
+when we encounter an error should we return in the  main or use the
+exit functio?????
+
+
+HOW TO PUT GLOBAL VARIABLES ACROSS ALL FILes????/
+should we account for more than one notch eventiually??
+
+
+Is is bad that i missspelled pluckboard?
+
+
+
+argc is the length or the biggest index?
+
+
+Why cant I call a helper method within a constructor?
+
+
+The way I created the rotors : How wold I use the delete opertator not
+to have a memory leak?
+
+Do I need a destructor with my enigma class?
+
+
+Can I add an error type for the possible sources of errors that have
+not been identified?
+
+where do the classes go in terms of stack? How come that member
+functions have access to all member variables,how does that look in
+terms of stack?
+what about when creating an object within a class? should I destry
+them?
+I create the rotors dynamically and the static encryptors normally:
+how is that going to look in terms of memory?
+
+should I close the streams? Why?
+
+
+for the headers of each file what methodology to follow to know what
+to leave in there
+
+
+Should my rotor config files be a member variable ? why? how to choose
+when making a variable local or member variable? same w output message array.
+
+could i have void pointers instead of rotor pointers and then put
+rotors and staticEncryptors in the same array?
+
+
+should I be using the sentinel character to keep track of the end of
+my array ?? Enigma.cpp and Rotor .cpp (notch array)
+
+What should I do with my debugging helper functions?
+
+
+for errors what if someone puts a rotor config file instead of the
+reflecotr? -> if yes we need to invent another type of error.

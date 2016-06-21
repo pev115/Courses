@@ -1,0 +1,39 @@
+sells(usa, grain, japan).
+sells(S, P, R) :-  produces(S, P), needs(R, P).
+
+produces(oman, oil).
+produces(iraq, oil).
+produces(japan, computers).
+produces(germany, cars).
+produces(france, iron).
+
+needs(germany, iron).
+needs(britain, coal).
+needs(japan, coal).
+needs(japan, diamonds).
+needs(britain, cars).
+needs(japan, cars).
+needs(X, computers):-country(X).
+needs(C, oil) :- needs(C, cars).
+
+bilateral_traders(X,Z) :- sells(X,_,Z), sells(Z,_,X), Z\=X.
+
+country(japan).
+country(france).
+country(britain).
+country(germany).
+
+nat_res(france, coal).
+nat_res(britain,coal).
+nat_res(southafrica, diamonds).
+
+ce(france,coal).
+ce(southafrica,diamonds).
+
+mines(X,I):- ce(X,I),  nat_res(X,I).
+exports(X,I,Y) :- (mines(X,I) ; produces(X,I) ), needs(Y,I).
+
+in_competition(X,Y,I):-exports(X,I,_),exports(Y,I,_), X\=Y.
+
+lower(I):- in_competition(C1,C2,I).
+

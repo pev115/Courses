@@ -1,0 +1,2 @@
+pyramid : pyramid.cpp
+	g++ -Wall -g -dgb pyramid.cpp -o pyramid

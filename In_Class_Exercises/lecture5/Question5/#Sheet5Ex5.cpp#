@@ -1,0 +1,62 @@
+/*
+Author : Eugene Valassakis
+
+This program lists the different characters present in this file */
+
+
+
+#include<iostream>
+#include<fstream>
+#include <cstdlib>
+
+using namespace std;
+
+void counting_function(ifstream& is, int& number, char cr);
+
+int main(){
+
+	int number=0;
+	ifstream instream;
+
+	cout.setf(ios::left);
+	cout.width(20);
+	cout<<endl<<endl<<"CHARACTER"<<"OCCURENCE"<<endl<<endl;
+
+	for(int i=97; i<=122; i++){
+
+		instream.open("Sheet5Ex5.cpp");
+		if (instream.fail()){
+			cout << "Sorry, the file couldn't be opened!\n";
+			exit(1);
+		}
+
+		counting_function(instream,number,static_cast<char>(i));
+		
+		instream.close();
+
+
+		cout.width(20);
+		cout<<static_cast<char>(i)<<number<<endl;
+
+
+	}
+
+	return 0;
+
+}
+
+
+//Function finding the number of characters of each type (I will also put 2 "z z" just to test I get 2)
+
+void counting_function(ifstream& is, int& number, char cr){
+
+	char car;
+	is>>car;
+
+	while(!is.eof()){
+		if(car==cr){number++;}
+		is>>car;
+	}
+
+
+}

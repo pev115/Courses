@@ -1,0 +1,46 @@
+package simulation;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public abstract class Collision extends AbstractEvent{
+    private Particle[] ps;
+    private List<Integer> initial_hits;
+    
+    /**
+     * Constructor for Collision
+     */
+    public Collision(double t, Particle[] ps) {
+        super(t);
+        this.ps = ps;
+        initial_hits = new ArrayList<Integer>();
+    	
+    	for (Particle part : ps){
+    		initial_hits.add(part.collisions());
+    	}
+    }
+
+    /**
+     * Returns true if this Collision is (still) valid.
+     */
+    @Override
+    public boolean isValid() {
+    	int i = 0;
+    	
+    	for (Particle part : ps){
+    		if (initial_hits.get(i) != part.collisions()) {
+    			return false;
+    		}
+    		i++;
+    	}
+        return true;
+    }
+
+    /**
+     * Returns an array containing the Particles involved in this Collision.
+     */
+    public Particle[] getParticles() {
+        return ps;
+    }
+}

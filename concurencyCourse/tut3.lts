@@ -1,0 +1,5 @@
+
+ELEMENT = (up -> down-> ELEMENT).
+
+||ELEMENT_PAR(N=4) = (a[i:1..N]:ELEMENT) /{{ forall[i:1..N] {a[i].down/b[i].up,up/a[1].up ,down/b[4].down}}@{up,down}}.
+

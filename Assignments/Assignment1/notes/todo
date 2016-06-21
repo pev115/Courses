@@ -1,0 +1,13 @@
+
+
+for the is_it_in_bounds -> extend functionality to take all sorts of
+inputs
+
+for the make_move-> extend so it can handle wrong digits aswell.
+
+for make move : watch out if the position is 1 0r 0 digits it breaks down
+
+
+For the tests in all questions : check that the comments are
+consistent and that they give the right results -> I changed things
+and  there might be inconcistensies.

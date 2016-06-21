@@ -1,0 +1,2 @@
+scores: scores.cpp
+	g++ -Wall -g scores.cpp -o scores

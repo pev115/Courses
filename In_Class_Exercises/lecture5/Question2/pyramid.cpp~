@@ -1,0 +1,74 @@
+/* This program prints out a pyramid */
+
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+void print_pyramid(int height);
+void input_height(int& the_height);
+
+
+
+int main(){
+
+int height;
+
+input_height(height);
+
+while(height != 0){
+
+	if (height<1 || height>30){
+		cout<<"The height can only be between 1 and 30."<<endl;
+	}else{
+		print_pyramid(height);
+	}
+
+	input_height(height);
+}
+
+cout<<"bye bye!"<<endl;
+return 0;
+
+
+
+}
+
+//Function to print the pyramid.
+void print_pyramid(int height){
+int padding=30;
+char ch= '*';
+
+
+	for( int i=1; i <= height; i++){
+	cout.width(padding);
+		//for(int k =1; k <= i; k++){
+		
+		cout<<ch<<ch;
+		//} 
+
+
+	cout<<endl;
+	padding-=1;
+	
+	}
+}
+
+
+//Function to prompt user to input the height
+void input_height(int& height){
+
+cout<<"This program prints a piramid. Please specify the height that you want. "<<endl;
+cout<<"A 0 height will terminate the program."<<endl<<endl;
+cout<<"The height : ";
+cin>> height;
+
+
+
+
+}
+
+
+
+
+

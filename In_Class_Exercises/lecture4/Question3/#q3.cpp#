@@ -1,0 +1,34 @@
+/*This file counts and prints all the characters in its own source code */
+
+#include<iostream>
+#include<fstream>
+#include<cstdlib>
+using namespace std;
+
+int main(){
+  
+  int count;
+  char car;
+  ifstream instream;
+  instream.open("q3.cpp");
+
+  if(instream.fail()){
+
+    cout<<endl<<endl<< "FAIIIILLLLLLLLL !!!!! Bye bye"<<endl<<endl;
+    exit(1);
+
+  }
+ 
+  instream.get(car);
+  count0;
+
+  while(!instream.eof()){
+    count++;
+    instream.get(car);
+    
+  }
+  
+  cout<<endl<<endl<<"The number of characters is : "<<count<<endl<<endl;
+  
+  return  0;
+}

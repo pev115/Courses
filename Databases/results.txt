@@ -1,0 +1,75 @@
+   name   |     name     | born_in 
+----------+--------------+---------
+ George V | Mary of Teck | London
+(1 row)
+
+    name     
+-------------
+ Edward VIII
+(1 row)
+
+     name      |   father   |      mother       
+---------------+------------+-------------------
+ Albert Victor | Edward VII | Alexandra (Queen)
+(1 row)
+
+           name           
+--------------------------
+ Alec Douglas-Home
+ Andrew Bonar Law
+ Anne
+ Anthony Eden
+ Arthur Balfour
+ Benjamin Disraeli
+ Charles I
+ Charles II
+ Clement Attlee
+ David Cameron
+ David Lloyd George
+ Earl of Rosebery
+ Edward Heath
+ Edward VII
+ Edward VIII
+ Elizabeth II
+ George I
+ George II
+ George III
+ George IV
+ George V
+ George VI
+ Gordon Brown
+ Harold Macmillan
+ Harold Wilson
+ Henry Campbell-Bannerman
+ Herbert Henry Asquith
+ James Callaghan
+ James I
+ James II
+ John Major
+ Lord Salisbury
+ Margaret Thatcher
+ Mary II
+ Neville Chamberlain
+ Ramsay MacDonald
+ Stanley Baldwin
+ Tony Blair
+ Victoria
+ William Ewart Gladstone
+ William III
+ William IV
+ Winston Churchill
+(43 rows)
+
+    name     
+-------------
+ Edward VIII
+ James II
+(2 rows)
+
+    name    |  house  | accession  
+------------+---------+------------
+ James I    | Stuart  | 1603-03-24
+ George I   | Hanover | 1714-08-01
+ Edward VII | Windsor | 1901-01-22
+(3 rows)
+

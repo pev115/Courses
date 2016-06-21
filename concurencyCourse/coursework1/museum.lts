@@ -1,0 +1,29 @@
+const N=2
+range R= 0..N
+
+EAST = (enter->EAST).
+WEST = (exit -> WEST).
+
+DIRECTOR = (open->close->empty->DIRECTOR).
+
+CONTROLLER = (open ->OPERATE[0]),
+OPERATE[i:R] = (when i<N enter -> OPERATE[i+1]
+				|when i>0 exit -> OPERATE[i-1]
+				|close ->END_OPERATE[i]),
+END_OPERATE[j:R] = (when j>0 exit ->END_OPERATE[j-1]
+					|when j==0 empty->CONTROLLER).
+
+
+||MUSEUM = (EAST||WEST||DIRECTOR||CONTROLLER).
+
+
+TEST = (open-> TESTOPERATE),
+TESTOPERATE = (enter->TESTOPERATE | close-> TESTENDOPERATE),
+TESTENDOPERATE = (empty->TEST
+				 |enter->ERROR).
+
+||MUSEUM_TEST =(TEST||MUSEUM).
+
+P = STOP + {exit}.
+
+||MUSEUM_P=(MUSEUM || P).

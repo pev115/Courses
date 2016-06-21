@@ -1,0 +1,110 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Prolog Grammar
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% define the nouns 
+noun(boy).
+noun(boys).
+noun(apple).
+noun(apples).
+noun(song).
+noun(songs).
+noun(cow).
+noun(cows).
+noun(grass).
+noun(girl).
+noun(girls).
+
+% define the articles
+article(the).
+article(a).
+article(an).
+
+% define the verbs
+verb(eats).
+verb(eat).
+verb(sings).
+verb(sing).
+
+
+% define what is a noun phrase
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+noun_phrase(NP):-
+    NP = [Article,Noun|[]],
+    article(Article),
+    noun(Noun),
+    consistent([Article,Noun|[]]).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% define what is a verb phrase:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% It can consist of only a verb...
+verb_phrase(VP):-
+    VP  = [Verb|[]],
+    verb(Verb).
+
+% Or of a verb and a noun phrase
+% Defined recurrently, base case where there is only a verb.
+verb_phrase(VP):-
+    VP = [Verb| NP],
+    noun_phrase(NP),
+    verb_phrase([Verb]).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%define plurality
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+plural(boys).
+plural(apples).
+plural(cows).
+plural(songs).
+plural(grass).
+plural(girls).
+
+plural(eat).
+plural(sing).
+	
+plural(the).
+
+%plural([Article,Noun|[]]):-
+%	plural(Noun).
+
+%plural([Verb|NP]):-
+%	plural(Verb).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% define what is a sentence
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sentence(S):- 
+    S = [Article,Noun|VerbPhrase],
+    noun_phrase([Article,Noun]),
+    verb_phrase(VerbPhrase),
+    consistent(S).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% define consistency (in terms of plurality)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+consistent([Article,Noun|[Verb|NP]]):-		
+	(plural(Noun), plural(Verb));
+	(\+ plural(Noun), \+ plural(Verb)).      
+
+% A noun phrase with a plural article can have its noun either plural
+% or singular. A noun phrase with a singular article has to have
+% a singular noun.
+consistent([Article,Noun|[]]):-
+	(
+	plural(Article),plural(Noun);
+	plural(Article),\+plural(Noun)
+	);
+	\+plural(Article),\+plural(Noun).
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+	 		
+
+
+    
+
+
+

@@ -1,0 +1,248 @@
+ first_name  
+-------------
+ Albert
+ Alec
+ Alexandra
+ Alfred
+ Alice
+ Andrew
+ Anne
+ Anthony
+ Arthur
+ Augusta
+ Benjamin
+ Charles
+ Charlotte
+ Clement
+ Constantine
+ David
+ Diana
+ Earl
+ Edward
+ Elizabeth
+ Ernest
+ Frances
+ Frederick
+ George
+ Gordon
+ Harold
+ Henrietta
+ Henry
+ Herbert
+ James
+ John
+ Lord
+ Margaret
+ Mary
+ Neville
+ Oliver
+ Palatine
+ Philip
+ Ramsay
+ Richard
+ Stanley
+ Tony
+ Victoria
+ William
+ Winston
+(45 rows)
+
+       born_in       | popularity 
+---------------------+------------
+ London              |         32
+ Sandringham         |          4
+ Hanover             |          3
+ Athens              |          2
+ Copenhagen          |          2
+ Fife                |          2
+ Huddersfield        |          2
+ Huntingdon          |          2
+ Rexton              |          2
+ The Hague           |          2
+ Windsor             |          2
+ Bewdley             |          1
+ Birmingham          |          1
+ Carshalton          |          1
+ Coburg              |          1
+ Coldstream          |          1
+ Corfu               |          1
+ Dumfermline         |          1
+ Edinburgh           |          1
+ Frogmore            |          1
+ Giffnock            |          1
+ Glamis Castle       |          1
+ Glasgow             |          1
+ Gotha               |          1
+ Grantham            |          1
+ Hatfield            |          1
+ Herzberg am Harz    |          1
+ Liverpool           |          1
+ Lossiemouth         |          1
+ Mecklenburg-Streliz |          1
+ Morley              |          1
+ Paris               |          1
+ Portsmouth          |          1
+ Whittingehame       |          1
+ Windsor Castle      |          1
+ Woodstock           |          1
+(36 rows)
+
+  house  | seventeenth | eighteenth | nineteenth | twentieth 
+---------+-------------+------------+------------+-----------
+ Hanover |           0 |          3 |          3 |         0
+ Stuart  |           6 |          1 |          0 |         0
+ Windsor |           0 |          0 |          0 |         5
+(3 rows)
+
+         name          | age 
+-----------------------+-----
+ Albert                |  21
+ Alexandra (Queen)     |  19
+ Alice                 |  36
+ Andrew of Greece      |  39
+ Anne Hyde             |  24
+ Augusta of Saxe-Gotha |  18
+ Charles               |  33
+ Charles I             |  29
+ Charlotte             |  19
+ Diana                 |  20
+ Edward (Prince)       |  51
+ Edward VII            |  22
+ Elizabeth             |  25
+ Elizabeth II          |  22
+ Elizabeth of Bohemia  |  34
+ Ernest Augustus       |  30
+ Frances               |  25
+ Frederick             |  31
+ George I              |  23
+ George II             |  23
+ George III            |  24
+ George I of Greece    |  22
+ George V              |  29
+ George VI             |  30
+ Henrietta Maria       |  20
+ James I               |  30
+ James II              |  28
+ Mary of Teck          |  27
+ Mary (Princess Royal) |  19
+ Oliver Cromwell       |  27
+ Palatine Sophia       |  29
+ Philip                |  27
+ Victoria              |  21
+ William II of Orange  |  24
+(34 rows)
+
+          father          |           child           | born 
+--------------------------+---------------------------+------
+ Albert                   | Victoria (Princess Royal) |    1
+ Albert                   | Edward VII                |    2
+ Albert                   | Alice (Princess)          |    3
+ Albert                   | Alfred                    |    4
+ Albert Victor            |                           |     
+ Alec Douglas-Home        |                           |     
+ Alfred                   |                           |     
+ Andrew                   |                           |     
+ Andrew Bonar Law         |                           |     
+ Andrew of Greece         | Philip                    |    1
+ Anthony Eden             |                           |     
+ Arthur Balfour           |                           |     
+ Benjamin Disraeli        |                           |     
+ Charles                  | William                   |    1
+ Charles                  | Henry                     |    2
+ Charles I                | Charles II                |    1
+ Charles I                | Mary (Princess Royal)     |    2
+ Charles I                | James II                  |    3
+ Charles II               |                           |     
+ Clement Attlee           |                           |     
+ Constantine I of Greece  |                           |     
+ David Cameron            |                           |     
+ David Lloyd George       |                           |     
+ Earl of Rosebery         |                           |     
+ Edward                   |                           |     
+ Edward Heath             |                           |     
+ Edward (Prince)          | Victoria                  |    1
+ Edward VII               | Albert Victor             |    1
+ Edward VII               | George V                  |    2
+ Edward VII               | Alice (Princess Royal)    |    3
+ Edward VIII              |                           |     
+ Ernest Augustus          | George I                  |    1
+ Frederick                | George III                |    1
+ Frederick (Prince)       |                           |     
+ George I                 | George II                 |    1
+ George II                | Frederick                 |    1
+ George III               | Frederick (Prince)        |    1
+ George III               | George IV                 |    2
+ George III               | William IV                |    2
+ George III               | Edward (Prince)           |    4
+ George I of Greece       | Constantine I of Greece   |    1
+ George I of Greece       | Andrew of Greece          |    2
+ George IV                |                           |     
+ George V                 | Edward VIII               |    1
+ George V                 | George VI                 |    2
+ George VI                | Elizabeth II              |    1
+ George VI                | Margaret                  |    2
+ Gordon Brown             |                           |     
+ Harold Macmillan         |                           |     
+ Harold Wilson            |                           |     
+ Henry                    |                           |     
+ Henry Campbell-Bannerman |                           |     
+ Herbert Henry Asquith    |                           |     
+ James Callaghan          |                           |     
+ James I                  | Elizabeth of Bohemia      |    1
+ James I                  | Charles I                 |    2
+ James II                 | Mary II                   |    1
+ James II                 | Anne                      |    2
+ John Major               |                           |     
+ Lord Salisbury           |                           |     
+ Neville Chamberlain      |                           |     
+ Oliver Cromwell          | Richard Cromwell          |    1
+ Philip                   | Charles                   |    1
+ Philip                   | Anne (Princess)           |    2
+ Philip                   | Andrew                    |    3
+ Philip                   | Edward                    |    4
+ Ramsay MacDonald         |                           |     
+ Richard Cromwell         |                           |     
+ Stanley Baldwin          |                           |     
+ Tony Blair               |                           |     
+ William                  |                           |     
+ William Ewart Gladstone  |                           |     
+ William III              |                           |     
+ William II of Orange     | William III               |    1
+ William IV               |                           |     
+ Winston Churchill        |                           |     
+(76 rows)
+
+   monarch    |      prime_minister      
+--------------+--------------------------
+ Edward VII   | Arthur Balfour
+ Edward VII   | Henry Campbell-Bannerman
+ Edward VII   | Herbert Henry Asquith
+ Edward VII   | Lord Salisbury
+ Edward VIII  | Stanley Baldwin
+ Elizabeth II | Alec Douglas-Home
+ Elizabeth II | Anthony Eden
+ Elizabeth II | David Cameron
+ Elizabeth II | Edward Heath
+ Elizabeth II | Gordon Brown
+ Elizabeth II | Harold Macmillan
+ Elizabeth II | Harold Wilson
+ Elizabeth II | James Callaghan
+ Elizabeth II | John Major
+ Elizabeth II | Margaret Thatcher
+ Elizabeth II | Tony Blair
+ Elizabeth II | Winston Churchill
+ George V     | Andrew Bonar Law
+ George V     | David Lloyd George
+ George V     | Herbert Henry Asquith
+ George V     | Ramsay MacDonald
+ George V     | Stanley Baldwin
+ George VI    | Clement Attlee
+ George VI    | Neville Chamberlain
+ George VI    | Stanley Baldwin
+ George VI    | Winston Churchill
+ Victoria     | Benjamin Disraeli
+ Victoria     | Earl of Rosebery
+ Victoria     | Lord Salisbury
+ Victoria     | William Ewart Gladstone
+(30 rows)
+

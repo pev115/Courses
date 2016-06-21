@@ -1,0 +1,467 @@
+var myContract = sendContract.new(miguel,0,{from:web3.eth.accounts[0], data: contract.code, gas: 300000}, function(e, contract){
+    if(!e) {
+
+      if(!contract.address) {
+        console.log("Contract transaction send: TransactionHash: " + contract.transactionHash + " waiting to be mined...");
+
+      } else {
+        console.log("Contract mined! Address: " + contract.address);
+        console.log(contract);
+      }
+
+    }
+})
+
+address: "0xf275ed02ae2a1c7a74c1d8e337749e55cfccb14b",
+
+
+ABI::::
+
+[{
+        constant: false,
+        inputs: [],
+        name: "getAmountStored",
+        outputs: [...],
+        type: "function"
+    }, {
+        constant: false,
+        inputs: [],
+        name: "send",
+        outputs: [...],
+        type: "function"
+    }, {
+        inputs: [...],
+        type: "constructor"
+    }]
+
+
+
+
+
+contract sendMoney {
+    address receiver;
+    address owner;
+    uint amount_stored;
+    
+    /* Constructor */ 
+    function sendMoney(address _receiver, uint _amount) {
+        receiver = _receiver;
+        owner = msg.sender;
+        amount_stored = 0; // msg.value
+    }
+    
+    function () {
+        uint amount = msg.value;
+        amount_stored += amount;
+    }
+    
+    function getAmountStored() returns(uint) {
+        return amount_stored;
+    }
+    
+    function send() returns (uint) {
+        if (amount_stored > 1) {
+                receiver.send(1);
+                amount_stored -= 1;
+                return amount_stored;
+        }
+        return amount_stored;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+NEW CONTRACT
+
+
+
+
+
+
+
+contract sendMoney {
+    address receiver;
+    address owner;
+    uint amount_stored;
+    
+    /*variables to keep track of time*/
+    uint created_time;
+    uint month_count;
+    uint expiry_time;
+    uint SECONDS_PER_MONTH;
+    
+    /* Constructor */ 
+    function sendMoney(address _receiver) {
+        SECONDS_PER_MONTH = 60;
+        receiver = _receiver;
+        owner = msg.sender;
+        amount_stored = msg.value; 
+        created_time = now;
+        expiry_time = 10*SECONDS_PER_MONTH;
+        month_count = 1;
+    }
+    
+    /*function modifier to check that something happens only once a month*/
+    modifier checks_time{
+        uint request_time = now; 
+        
+        if(request_time<expiry_time){
+            throw;
+        }
+
+        if(request_time<month_count*SECONDS_PER_MONTH){
+            throw;
+        }
+    _
+    
+    }
+    
+    function () {
+        uint amount = msg.value;
+        amount_stored += amount;
+    }
+    
+    function getAmountStored() returns(uint) {
+        return amount_stored;
+    }
+    
+    function getAmountStoredWithBalance() returns(uint){
+    
+        return this.balance;    
+    
+    }
+    
+    function request_payment() checks_time {
+        if (amount_stored >= 10) {
+                receiver.send(10);
+                amount_stored -= 10;
+                month_count++;
+        }
+
+    }
+}
+
+
+
+
+To send to ethereum : 
+
+sendMoney= sendMoneyContract.new(miguel,{from: eugene, data:
+    sendMoneyCompiled.sendMoney.code,gas: 300000},function(e, contract){
+    if(!e) {
+
+      if(!contract.address) {
+        console.log("Contract transaction send: TransactionHash: " + contract.transactionHash + " waiting to be mined...");
+
+      } else {
+        console.log("Contract mined! Address: " + contract.address);
+        console.log(contract);
+      }
+
+    }
+})
+
+
+
+ABI:
+
+[{
+    constant: false,
+    inputs: [],
+    name: "getAmountStored",
+    outputs: [{
+        name: "",
+        type: "uint256"
+    }],
+    type: "function"
+}, {
+    constant: false,
+    inputs: [],
+    name: "request_payment",
+    outputs: [],
+    type: "function"
+}, {
+    constant: false,
+    inputs: [],
+    name: "getAmountStoredWithBalance",
+    outputs: [{
+        name: "",
+        type: "uint256"
+    }],
+    type: "function"
+}, {
+    inputs: [{
+        name: "_receiver",
+        type: "address"
+    }],
+    type: "constructor"
+}]
+
+
+
+ABI MINIMIZED:
+[{constant: false, inputs: [], name: "getAmountStored", outputs: [{name: "", type: "uint256"}], type: "function"},{constant: false, inputs: [], name: "request_payment", outputs: [], type: "function"},{constant: false, inputs: [], name: "getAmountStoredWithBalance", outputs: [{name: "", type: "uint256"}], type: "function"},{inputs: [{name: "_receiver", type: "address"}], type: "constructor"}]
+
+
+Address:
+"0xaada652be6de0878f45c3d2a92c7d0ec39a75b16"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+VERY LATEST DEPLOYED:::
+
+
+
+
+
+contract sendMoney {
+    address public receiver;
+    address public owner;
+    uint amount_stored;
+    
+    /*variables to keep track of time*/
+    uint public created_time;
+    uint public month_count;
+    uint public expiry_time;
+    uint public SECONDS_PER_MONTH;
+    
+    /* Constructor */ 
+    function sendMoney(address _receiver) {
+        SECONDS_PER_MONTH = 60;
+        receiver = _receiver;
+        owner = msg.sender;
+        amount_stored = msg.value; 
+        created_time = now;
+        expiry_time = 10*SECONDS_PER_MONTH;
+        month_count = 1;
+    }
+    
+    
+    function () {
+        uint amount = msg.value;
+        amount_stored += amount;
+    }
+    
+    function getAmountStored() returns(uint) {
+        return amount_stored;
+    }
+    
+    function getAmountStoredWithBalance() returns(uint){
+    
+        return this.balance;    
+    
+    }
+    
+    function request_payment() {
+        if (amount_stored >= 10) {
+                receiver.send(10);
+                amount_stored -= 10;
+                month_count++;
+        }
+
+    }
+}
+
+
+
+ABI DEFINITION:
+
+
+[{
+    constant: true,
+    inputs: [],
+    name: "SECONDS_PER_MONTH",
+    outputs: [{
+        name: "",
+        type: "uint256"
+    }],
+    type: "function"
+}, {
+    constant: false,
+    inputs: [],
+    name: "getAmountStored",
+    outputs: [{
+        name: "",
+        type: "uint256"
+    }],
+    type: "function"
+}, {
+    constant: true,
+    inputs: [],
+    name: "created_time",
+    outputs: [{
+        name: "",
+        type: "uint256"
+    }],
+    type: "function"
+}, {
+    constant: false,
+    inputs: [],
+    name: "request_payment",
+    outputs: [],
+    type: "function"
+}, {
+    constant: true,
+    inputs: [],
+    name: "owner",
+    outputs: [{
+        name: "",
+        type: "address"
+    }],
+    type: "function"
+}, {
+    constant: false,
+    inputs: [],
+    name: "getAmountStoredWithBalance",
+    outputs: [{
+        name: "",
+        type: "uint256"
+    }],
+    type: "function"
+}, {
+    constant: true,
+    inputs: [],
+    name: "month_count",
+    outputs: [{
+        name: "",
+        type: "uint256"
+    }],
+    type: "function"
+}, {
+    constant: true,
+    inputs: [],
+    name: "receiver",
+    outputs: [{
+        name: "",
+        type: "address"
+    }],
+    type: "function"
+}, {
+    constant: true,
+    inputs: [],
+    name: "expiry_time",
+    outputs: [{
+        name: "",
+        type: "uint256"
+    }],
+    type: "function"
+}, {
+    inputs: [{
+        name: "_receiver",
+        type: "address"
+    }],
+    type: "constructor"
+}]
+
+
+
+ABI one liner:::::
+
+[{constant: true, inputs: [], name: "SECONDS_PER_MONTH", outputs: [{name: "", type: "uint256"}], type: "function"},{constant: false, inputs: [], name: "getAmountStored", outputs: [{name: "", type: "uint256"}], type: "function"},{constant: true, inputs: [], name: "created_time", outputs: [{name: "", type: "uint256"}], type: "function"},{constant: false, inputs: [], name: "request_payment", outputs: [], type: "function"},{constant: true, inputs: [], name: "owner", outputs: [{name: "", type: "address"}], type: "function"},{constant: false, inputs: [], name: "getAmountStoredWithBalance", outputs: [{name: "", type: "uint256"}], type: "function"},{constant: true, inputs: [], name: "month_count", outputs: [{name: "", type: "uint256"}], type: "function"},{constant: true, inputs: [], name: "receiver", outputs: [{name: "", type: "address"}], type: "function"},{constant: true, inputs: [], name: "expiry_time", outputs: [{name: "", type: "uint256"}], type: "function"},{inputs: [{name: "_receiver", type: "address"}], type: "constructor"}]
+
+
+
+ADRESS:::
+"0x42627eaa4e09f626403eca021bb3af9f0d56b809"
+
+
+to send to ethereum :
+
+
+sendMoney= sendMoneyContract.new(miguel,{from: eugene, data:
+    sendMoneyCompiled.sendMoney.code,gas: 300000},function(e, contract){
+    if(!e) {
+
+      if(!contract.address) {
+        console.log("Contract transaction send: TransactionHash: " + contract.transactionHash + " waiting to be mined...");
+
+      } else {
+        console.log("Contract mined! Address: " + contract.address);
+        console.log(contract);
+      }
+
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ONE MORE:::::
+
+contract sendMoney {
+    address receiver;
+    address owner;
+    uint amount_stored;
+    
+    /* Constructor */ 
+    function sendMoney(address _receiver) {
+        receiver = _receiver;
+        owner = msg.sender;
+        amount_stored = msg.value; 
+    }
+    
+    
+    function () {
+        uint amount = msg.value;
+        amount_stored += amount;
+    }
+    
+    function getAmountStored() returns(uint) {
+        return amount_stored;
+    }
+    
+    function getAmountStoredWithBalance() returns(uint){
+        return this.balance;     
+    }
+
+    
+    function getReceiver() returns(address){
+	return receiver;
+    }	
+    
+    function request_payment() {
+        if (amount_stored >= 10) {
+                receiver.send(10);
+                amount_stored -= 10;
+        }
+
+    }
+}
+
+
+
+
+
+

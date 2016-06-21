@@ -1,0 +1,8 @@
+computation: computation.o statistics.o
+	g++ -Wall -g computation.o statistics.o -o computation
+
+computation.o : computation.cpp statistics.h
+	g++ -Wall -g -c computation.cpp
+
+statistics.o : statistics.cpp statistics.h
+	g++ -Wall -g -c statistics.cpp

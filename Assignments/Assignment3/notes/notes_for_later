@@ -1,0 +1,57 @@
+In the makeMove function instead of passing a bool temp pass  apointer
+to the chesspiece. If it is null then delete if it is not it means
+there is a stored piece so do not delete.think about it more though
+
+all my itereators called it is it ok? 
+
+remove createmap hardcoding
+remove knight hardcoding
+
+remove all the exits
+
+The onTopOfOwn function can/could be replaces, or at least use the
+findInMap in it.
+
+is it bad practice if we use switch at some places and if else at others.
+
+does the getmap copy the object and returns it? does it return a
+reference? How do I protect it?
+
+Why does the online test fail?
+
+
+
+
+
+
+
+
+
+does the map object have its own destructor? does that mean we do not
+need to delete when we dynamically allocate to a map?
+
+
+
+
+TO DO :
+
+-> TAke out the onTopOfOwn
+-> Pass a constant reference of the map UNLESS you abstract away the
+-> fact that you have a map. 
+
+
+
+isnt it wierd that when you pass something by reference you it accepts
+both the object itself and a reference to that object? what is
+happening under the hood?
+->follow up: fr pointers however it is not the case ie you have to
+input a pointer when the function expecets a ponter -.weird
+
+what happens (internally) if I have :
+-> foo(int& kag);
+
+and then I call it as foo(5).
+ what if it was foo(int* kag); instead?
+
+
+>>>>>>>>>WHAT SHOULD WE OUTPUT IN THE CASES THEY DID NOT GIVE US??

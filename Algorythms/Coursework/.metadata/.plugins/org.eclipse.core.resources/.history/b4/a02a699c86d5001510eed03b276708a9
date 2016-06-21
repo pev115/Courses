@@ -1,0 +1,93 @@
+package simulation;
+
+import java.lang.reflect.InvocationTargetException;
+import javax.swing.SwingUtilities;
+import utils.MinPriorityQueue;
+
+public class ParticleSimulation implements Runnable, ParticleEventHandler{
+
+    private static final long FRAME_INTERVAL_MILLIS = 40;
+    
+    private final ParticlesModel          model;
+    private final ParticlesView           screen;
+    private MinPriorityQueue<Event>	      queue;
+    private double 						  clock;
+    
+    /**
+     * Constructor.
+     */
+    public ParticleSimulation(String name, ParticlesModel m) {
+        model = m;
+        screen = new ParticlesView(name, m);
+        queue = new MinPriorityQueue<Event>();
+        queue.add(new Tick(1.0));
+        
+        Iterable<Collision> iterator = m.predictAllCollisions(1.0);
+        for (Collision c : iterator) {
+        	queue.add(c);
+        }
+    }
+
+    @Override
+    public void reactTo(Tick tick) {
+    	// Sleep
+    	try {
+			Thread.sleep(FRAME_INTERVAL_MILLIS);
+		} catch (InterruptedException e) {
+			// TO CHECK !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			e.printStackTrace();
+		}
+    	
+    	// Update screen
+    	screen.update();
+    	
+    	// Add new tick event to the queue
+    	queue.add(new Tick(tick.time()+1.0));
+    }
+
+    @Override
+    public void reactTo(Collision c) {	
+    	for (Particle p : c.getParticles()) {
+    		for(Collision coll : model.predictCollisions(p, clock)){
+    			queue.add(coll);
+    		}
+    	}
+    }
+
+    
+    
+    
+    /**
+     * Runs the simulation.
+     */
+    @Override
+    public void run() {
+        try {
+            SwingUtilities.invokeAndWait(screen);
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        
+        // Remove event from the queue
+        while (queue.size() >1) {
+        	Event next_event = queue.remove();
+        
+        
+        	if (next_event.isValid()) {
+        		// Update the clock and calculate time elapsed
+        		double initial_time = clock;
+        		clock = next_event.time();
+        		double time_diff = clock - initial_time;  // TO REMOVE
+        	
+        		// Move the particles
+        		model.moveParticles(time_diff);
+        	
+        		// Make the event happen
+        		next_event.happen(this);        	
+        	}
+        }
+        
+    }
+}

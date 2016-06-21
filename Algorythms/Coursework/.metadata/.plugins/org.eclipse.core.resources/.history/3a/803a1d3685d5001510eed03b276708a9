@@ -1,0 +1,123 @@
+package utils;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MinPriorityQueue<T extends Comparable<T>> {
+    
+    /**  Creates an empty queue. */
+	private List<T> queue;   /*= new ArrayList<T>();*/
+	//private int end_ptr;
+	/*private void swap(T element1, T element2);*/
+	
+    public MinPriorityQueue() {
+        //end_ptr = 0;
+    	queue = new ArrayList<T>();
+    	queue.add(null);     //keep first element empty 
+    }
+
+    /**
+     * Returns the number of elements currently in the queue.
+     */
+    public int size() {
+        return queue.size()-1;    // first element is null so subtract 1
+    }
+    
+    
+    /**
+     * Helper swap function 
+     */
+   private void swap(List<T> queue, int index_1, int index_2){
+	   	T temp= queue.get(index_2);
+		queue.set(index_2, queue.get(index_1));
+		queue.set(index_1, temp);
+    }
+    
+    
+    /** 
+     * 	Adds elements to the queue.
+     */
+    public void add(T elem) {
+    	// first, add element to the end of the queue
+    	queue.add(elem);
+    	//end_ptr++;
+    	//int elem_ptr = end_ptr;
+    	int elem_ptr = queue.size()-1;
+    	
+    	while ((elem_ptr != 1) && (queue.get(elem_ptr).compareTo(queue.get(elem_ptr/2)) < 0)){
+    		this.swap(queue, elem_ptr, elem_ptr/2);
+
+    		//update pointer
+    		elem_ptr = elem_ptr/2;
+    	}   	
+    }
+   
+    
+    /**
+     * Removes, and returns, the element at the front of the queue. 
+     * */
+    public T remove() {
+    	//if (end_ptr == 0){
+    	if (queue.size() == 1){
+    		return null;
+    	}
+    	
+    	T placeholder = queue.get(1);
+    	//this.swap(queue, 1, end_ptr);
+    	this.swap(queue, 1, queue.size()-1);
+    	queue.remove(queue.size() - 1);
+    	
+    	//end_ptr--;
+    	
+    	int elem_ptr = 1;
+    	while(true) {
+	    	if(elem_ptr*2 > queue.size()-1){
+	    		return placeholder;
+	    	}else if(elem_ptr*2==queue.size()-1){
+	    		if(queue.get(elem_ptr).compareTo(queue.get(elem_ptr*2))>0){
+	    			this.swap(queue, elem_ptr, elem_ptr*2);
+	    		}
+	    		return placeholder;
+	    	}else{
+	    		if (queue.get(elem_ptr*2).compareTo(queue.get(elem_ptr*2+1)) < 0) {
+	    			if (queue.get(elem_ptr).compareTo(queue.get(elem_ptr*2)) > 0){
+	    				this.swap(queue, elem_ptr, elem_ptr*2);	
+	    			}
+	    			elem_ptr *= 2;
+	    		}
+	    		else {
+	    			if (queue.get(elem_ptr).compareTo(queue.get(elem_ptr*2+1)) > 0){
+	    				this.swap(queue, elem_ptr, elem_ptr*2 + 1);
+	    			}
+	    			elem_ptr = 2*elem_ptr + 1;
+	    		}
+	    	}
+    	}
+    	
+    	/*
+    	while ((queue.get(elem_ptr).compareTo(queue.get(elem_ptr*2))) > 0 
+    			|| (queue.get(elem_ptr).compareTo(queue.get(elem_ptr*2 + 1))) > 0) {
+    		if (queue.get(elem_ptr*2).compareTo(queue.get(elem_ptr*2+1)) < 0) {
+    			this.swap(queue, elem_ptr, elem_ptr*2); //POTENTIAL BUG
+    			elem_ptr *= 2;
+    		}
+    		else {
+    			this.swap(queue, elem_ptr, elem_ptr*2 + 1);
+    			elem_ptr = 2*elem_ptr + 1;
+    		}
+    	}
+    	*/
+    	
+    }
+
+    /**
+     * Returns true if the queue is empty, false otherwise.
+     */
+    public boolean isEmpty() {
+        if (queue.size()==1)
+        	return true;	
+        
+        return false;
+    }
+    
+}

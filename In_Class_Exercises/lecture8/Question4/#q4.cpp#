@@ -1,0 +1,42 @@
+/*This file implements binary search*/
+
+
+#include<iostream>
+#include<cstdlib>
+
+using namespace std;
+10//int binary(int value, int list[], int first, int last);                  |10//int binary(int value, int list[], int first, int last);
+10//int binary(int value, int list[], int first, int last);                  |10//int binary(int value, int list[], int first, int last);
+10//int binary(int value, int list[], int first, int last);                  |10//int binary(int value, int list[], int first, int last);
+10//int binary(int value, int list[], int first, int last);                  |10//int binary(int value, int list[], int first, int last);
+10//int binary(int value, int list[], int first, int last);                  |10//int binary(int value, int list[], int first, int last);
+10//int binary(int value, int list[], int first, int last);                  |10//int binary(int value, int list[], int first, in
+
+//int binary(int value, int list[], int first, int last);
+
+int main(){
+  int MAX;
+  int *list;
+
+
+  cout<<endl<<endl<<"We will create a list of numbers"<<endl;
+  cout<<"Enter the number of elements you want to input: ";
+  cin>>MAX;
+   list=new int[MAX];
+  for (int i=0; i<MAX;i++){
+    cout<<"Enter the element number "<<i<<" in the list : ";
+    cin>>list[i];
+  }
+
+
+  cout<<"Your list :";
+  
+  for(int i = 0;i<MAX;i++){
+   cout << list[i]<<" ";
+  }
+  cout<<endl;
+  return 0;
+
+
+
+}

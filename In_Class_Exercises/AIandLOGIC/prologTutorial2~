@@ -1,0 +1,25 @@
+
+%define the gates
+output(G,0):-andgate(G), input1(G,X), input2(G,Y),(X=0;Y=0).
+output(G,1):- andgate(G),input1(G,X), input2(G,Y),(X=1,Y=1).
+
+
+output(G,0):- orgate(G), input1(G,X), input2(G,Y), (X=0,Y=0).
+output(G,1):- orgate(G), input1(G,X), input2(G,Y), (X=1;Y=1).
+
+
+output(G,0):- xorgate(G), input1(G,X), input2(G,Y) , (X=Y).
+output(G,1):- xorgate(G), input1(G,X), input2(G,Y), (X\=Y).
+
+
+
+
+xorgate(g1);
+xorgate(g2);
+
+andgate(g3);
+andgate(g4);
+
+orgate(g5);
+
+
